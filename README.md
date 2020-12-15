@@ -1,5 +1,8 @@
 # Refactoring_JAVA
+## How to learn
+* Organizing essential concepts & Cloning example codes
+* Each chapter has its own branches
 
-## 내용정리
+## What to learn
 * [chapter 1](#): Refactoring, a First Example
 * [chapter 2](#): Principles in Refactoring
