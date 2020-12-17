@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Refactoring_JAVA
 > 클린코드 작성을 위한 Refactoring(feat. Martin Fowler) 학습
 * [학습계획표](https://docs.google.com/spreadsheets/d/1E4ZqrEOs7lTRJ1yqNe3xeu9PbDd3iUH4lcl7oTyWWlg/edit?usp=sharing)
@@ -9,7 +8,3 @@
 * 책의 핵심내용에 대한 정리(Notion 활용)
 * 챕터별 예제 코드에 대한 클론코딩 및 활용
 * 챕터별 브랜치 생성하여 예제 코드 관리
-=======
-## chapter 1
-* 
->>>>>>> branch 'chapter1' of https://github.com/MJbae/Refactoring_JAVA.git
