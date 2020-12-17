@@ -28,7 +28,7 @@ public class Customer {
 		// Iterator와 유사한 동작방식, remove 메소드가 추가되어 있으며 공식문서에 Iterator 사용 권장
 		Enumeration<Rental> rentals = _rentals.elements();
 		String result = "Rental Record for " + getName() + "\n";
-		
+
 		while (rentals.hasMoreElements()) {
 			double thisAmount = 0;
 			Rental each = (Rental) rentals.nextElement();
@@ -49,7 +49,7 @@ public class Customer {
 					thisAmount += (each.getDaysRented() - 3) * 1.5;
 				break;
 			}
-			
+
 			// add frequent renter points
 			frequentRenterPoints++;
 			// add bonus for a two day new release rental
@@ -59,13 +59,13 @@ public class Customer {
 			result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(thisAmount) + "\n";
 			totalAmount += thisAmount;
 		}
-		
+
 		// add footer lines
 		result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
 		result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
 		return result;
 	}
-	
+
 	public static void main(String[] args) {
 		Customer customer = new Customer("MJ");
 		System.out.println(customer.statement());
