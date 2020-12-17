@@ -5,7 +5,9 @@ import java.util.Vector;
 
 public class Customer {
 	private String _name;
-	// TODO: Vector 클래스란?
+	// ArrayList와 동작방식 및 하위 메소드는 동일함
+	// 스레드 동기화 방식의 차이로 ArrayList의 성능이 뛰어남
+	// Vector는 과거 코드의 호완성을 위해 남아 있음
 	private Vector<Rental> _rentals = new Vector<Rental>();
 
 	public Customer(String name) {
@@ -23,6 +25,7 @@ public class Customer {
 	public String statement() {
 		double totalAmount = 0;
 		int frequentRenterPoints = 0;
+		// Iterator와 유사한 동작방식, remove 메소드가 추가되어 있으며 공식문서에 Iterator 사용 권장
 		Enumeration<Rental> rentals = _rentals.elements();
 		String result = "Rental Record for " + getName() + "\n";
 		
