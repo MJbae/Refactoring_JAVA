@@ -25,12 +25,12 @@ public class Customer {
 	public double getAmountOf(Rental aRental) {
 		return aRental.getAmountOf();
 	}
-	
+
 	public double getTotalAmount() {
 		double resultOfTotal = 0;
-		
+
 		Iterator<Rental> rentals = _rentals.iterator();
-		
+
 		while (rentals.hasNext()) {
 			Rental each = (Rental) rentals.next();
 			resultOfTotal += each.getAmountOf();
@@ -38,8 +38,23 @@ public class Customer {
 		return resultOfTotal;
 	}
 
+	public int getFrequentRenterPoints() {
+		int resultOfRenterPoints = 0;
+
+		Iterator<Rental> rentals = _rentals.iterator();
+
+		while (rentals.hasNext()) {
+			Rental each = (Rental) rentals.next();
+
+			resultOfRenterPoints += ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE) && each.getDaysRented() > 1)
+					? 2
+					: 1;
+		}
+
+		return resultOfRenterPoints;
+	}
+
 	public String statement() {
-		int frequentRenterPoints = 0;
 		// legacy 수정: Enumeration -> Iterator, elements() -> iterator()
 		Iterator<Rental> rentals = _rentals.iterator();
 		String result = "Rental Record for " + getName() + "\n";
@@ -48,18 +63,13 @@ public class Customer {
 		while (rentals.hasNext()) {
 			Rental each = (Rental) rentals.next();
 
-			// add frequent renter points
-			frequentRenterPoints++;
-			// add bonus for a two day new release rental
-			if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE) && each.getDaysRented() > 1)
-				frequentRenterPoints++;
 			// show figures for this rental
 			result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(getAmountOf(each)) + "\n";
 		}
 
 		// add footer lines
 		result += "Amount owed is " + String.valueOf(getTotalAmount()) + "\n";
-		result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
+		result += "You earned " + String.valueOf(getFrequentRenterPoints()) + " frequent renter points";
 		return result;
 	}
 
