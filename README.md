@@ -5,6 +5,6 @@
 ## 기간
 * '20. 12. 17.(목) ~ 12. 29.(화)
 ## 학습방법
-* 책의 핵심내용에 대한 정리(Notion 활용)
-* 챕터별 예제 코드에 대한 클론코딩
-* 각 챕터별 예제의 example code의 legacy code 제거 및 refactoring
+* Clearing Up: Notion 활용하여 핵심개념 정리
+* Cloning Code: 챕터별 예제 코드에 대한 cloning
+* Utilizing: UML 보고 스스로 refactoring & legacy 걷어내기
