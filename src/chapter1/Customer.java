@@ -5,8 +5,8 @@ import java.util.Iterator;
 
 public class Customer {
 	private String _name;
-	
-	// legacy 수정: Vector -> ArrayList 
+
+	// legacy 수정: Vector -> ArrayList
 	private ArrayList<Rental> _rentals = new ArrayList<Rental>();
 
 	public Customer(String name) {
@@ -29,7 +29,7 @@ public class Customer {
 		Iterator<Rental> rentals = _rentals.iterator();
 		String result = "Rental Record for " + getName() + "\n";
 
-		// legacy 수정: hasMoreElements() -> hasNext(), nextElement() -> next() 
+		// legacy 수정: hasMoreElements() -> hasNext(), nextElement() -> next()
 		while (rentals.hasNext()) {
 			double thisAmount = 0;
 			Rental each = (Rental) rentals.next();
@@ -69,19 +69,20 @@ public class Customer {
 
 	public static void main(String[] args) {
 		Customer customer1 = new Customer("MJ");
-		
+
 		Movie movie1 = new Movie("hello", Movie.CHILDRENS);
 		Movie movie2 = new Movie("hi", Movie.NEW_RELEASE);
 		Movie movie3 = new Movie("yo", Movie.REGULAR);
-		
-		Rental rental1 = new Rental(movie1, 7);
-		Rental rental2 = new Rental(movie2, 6);
-		Rental rental3 = new Rental(movie3, 14);
-		
-		customer1.addRental(rental1);
-		customer1.addRental(rental2);
-		customer1.addRental(rental3);
-		
+
+		ArrayList<Rental> rentalsByMJ = new ArrayList<Rental>();
+		rentalsByMJ.add(new Rental(movie1, 7));
+		rentalsByMJ.add(new Rental(movie2, 6));
+		rentalsByMJ.add(new Rental(movie3, 14));
+		rentalsByMJ.add(new Rental(movie3, 8));
+
+		for (Rental rental : rentalsByMJ)
+			customer1.addRental(rental);
+
 		System.out.println(customer1.statement());
 	}
 
