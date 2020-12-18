@@ -38,7 +38,11 @@ public class Customer {
 		return resultOfTotal;
 	}
 
-	public int getFrequentRenterPoints() {
+	public int getFrequentPoints(Rental aRental) {
+		return ((aRental.getMovie().getPriceCode() == Movie.NEW_RELEASE) && aRental.getDaysRented() > 1) ? 2 : 1;
+	}
+
+	public int getTotalFrequentRenterPoints() {
 		int resultOfRenterPoints = 0;
 
 		Iterator<Rental> rentals = _rentals.iterator();
@@ -46,9 +50,7 @@ public class Customer {
 		while (rentals.hasNext()) {
 			Rental each = (Rental) rentals.next();
 
-			resultOfRenterPoints += ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE) && each.getDaysRented() > 1)
-					? 2
-					: 1;
+			resultOfRenterPoints += getFrequentPoints(each);
 		}
 
 		return resultOfRenterPoints;
@@ -69,7 +71,7 @@ public class Customer {
 
 		// add footer lines
 		result += "Amount owed is " + String.valueOf(getTotalAmount()) + "\n";
-		result += "You earned " + String.valueOf(getFrequentRenterPoints()) + " frequent renter points";
+		result += "You earned " + String.valueOf(getTotalFrequentRenterPoints()) + " frequent renter points";
 		return result;
 	}
 
