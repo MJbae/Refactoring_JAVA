@@ -68,8 +68,21 @@ public class Customer {
 	}
 
 	public static void main(String[] args) {
-		Customer customer = new Customer("MJ");
-		System.out.println(customer.statement());
+		Customer customer1 = new Customer("MJ");
+		
+		Movie movie1 = new Movie("hello", Movie.CHILDRENS);
+		Movie movie2 = new Movie("hi", Movie.NEW_RELEASE);
+		Movie movie3 = new Movie("yo", Movie.REGULAR);
+		
+		Rental rental1 = new Rental(movie1, 7);
+		Rental rental2 = new Rental(movie2, 6);
+		Rental rental3 = new Rental(movie3, 14);
+		
+		customer1.addRental(rental1);
+		customer1.addRental(rental2);
+		customer1.addRental(rental3);
+		
+		System.out.println(customer1.statement());
 	}
 
 }
