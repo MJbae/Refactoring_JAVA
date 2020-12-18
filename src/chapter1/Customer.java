@@ -25,9 +25,20 @@ public class Customer {
 	public double getAmountOf(Rental aRental) {
 		return aRental.getAmountOf();
 	}
+	
+	public double getTotalAmount() {
+		double resultOfTotal = 0;
+		
+		Iterator<Rental> rentals = _rentals.iterator();
+		
+		while (rentals.hasNext()) {
+			Rental each = (Rental) rentals.next();
+			resultOfTotal += each.getAmountOf();
+		}
+		return resultOfTotal;
+	}
 
 	public String statement() {
-		double totalAmount = 0;
 		int frequentRenterPoints = 0;
 		// legacy 수정: Enumeration -> Iterator, elements() -> iterator()
 		Iterator<Rental> rentals = _rentals.iterator();
@@ -46,11 +57,10 @@ public class Customer {
 				frequentRenterPoints++;
 			// show figures for this rental
 			result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(thisAmount) + "\n";
-			totalAmount += thisAmount;
 		}
 
 		// add footer lines
-		result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
+		result += "Amount owed is " + String.valueOf(getTotalAmount()) + "\n";
 		result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
 		return result;
 	}
