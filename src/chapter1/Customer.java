@@ -22,8 +22,8 @@ public class Customer {
 		return _name;
 	};
 
-	public double getAmountOf(Rental rental) {
-		return rental.getAmountOf();
+	public double getAmountOf(Rental aRental) {
+		return aRental.getAmountOf();
 	}
 
 	public String statement() {
