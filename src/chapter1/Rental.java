@@ -18,6 +18,10 @@ public class Rental {
 	public Movie getMovie() {
 		return _movie;
 	}
+	
+	public int getFrequentPoints() {
+		return ((getMovie().getPriceCode() == Movie.NEW_RELEASE) && getDaysRented() > 1) ? 2 : 1;
+	}
 
 	public double getAmountOf() {
 		double resultOfAmount = 0;
