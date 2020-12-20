@@ -35,4 +35,10 @@ public class Movie {
 	public String getTitle() {
 		return _title;
 	};
+	
+	public double getAmountOf(int daysRented) {
+		return _price.getAmountOf(daysRented);
+	}
+	
+	
 }
