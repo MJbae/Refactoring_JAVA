@@ -64,7 +64,6 @@ public class Customer {
 		// legacy 수정: hasMoreElements() -> hasNext(), nextElement() -> next()
 		while (rentals.hasNext()) {
 			Rental each = (Rental) rentals.next();
-
 			// show figures for this rental
 			result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(getAmountOf(each)) + "\n";
 		}
