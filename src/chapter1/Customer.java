@@ -22,10 +22,6 @@ public class Customer {
 		return _name;
 	};
 
-	public double getAmountOf(Rental aRental) {
-		return aRental.getAmountOf();
-	}
-
 	public double getTotalAmount() {
 		double resultOfTotal = 0;
 
@@ -38,10 +34,6 @@ public class Customer {
 		return resultOfTotal;
 	}
 
-	public int getFrequentPoints(Rental aRental) {
-		return aRental.getFrequentPoints();
-	}
-
 	public int getTotalFrequentRenterPoints() {
 		int resultOfRenterPoints = 0;
 
@@ -49,8 +41,8 @@ public class Customer {
 
 		while (rentals.hasNext()) {
 			Rental each = (Rental) rentals.next();
-
-			resultOfRenterPoints += getFrequentPoints(each);
+			System.out.println("each frequent " + each.getFrequentPoints() + each.getDaysRented());
+			resultOfRenterPoints += each.getFrequentPoints();
 		}
 
 		return resultOfRenterPoints;
@@ -65,7 +57,7 @@ public class Customer {
 		while (rentals.hasNext()) {
 			Rental each = (Rental) rentals.next();
 			// show figures for this rental
-			result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(getAmountOf(each)) + "\n";
+			result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(each.getAmountOf()) + "\n";
 		}
 
 		// add footer lines

@@ -1,7 +1,5 @@
 package chapter1;
 
-import java.util.Iterator;
-
 public class Rental {
 	private Movie _movie;
 	private int _daysRented;
@@ -20,7 +18,7 @@ public class Rental {
 	}
 	
 	public int getFrequentPoints() {
-		return ((getMovie().getPriceCode() == Movie.NEW_RELEASE) && getDaysRented() > 1) ? 2 : 1;
+		return _movie.getFrequentPoints(_daysRented);
 	}
 
 	public double getAmountOf() {

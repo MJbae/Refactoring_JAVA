@@ -3,6 +3,10 @@ package chapter1;
 abstract class Price {
 	abstract int getPriceCode();
 	abstract double getAmountOf(int daysRented);
+	
+	int getFrequentPoints(int daysRented) {
+		return 1;
+	}
 }
 
 class NewReleasePrice extends Price {
@@ -12,6 +16,10 @@ class NewReleasePrice extends Price {
 
 	double getAmountOf(int daysRented) {
 		return daysRented * 3;
+	}
+	
+	int getFrequentPoints(int daysRented) {
+		return (daysRented > 1) ? 2 : 1;
 	}
 }
 
@@ -34,6 +42,8 @@ class RegularPrice extends Price {
 	}
 
 	double getAmountOf(int daysRented) {
-		return (daysRented > 2) ? (2 + (daysRented - 2) * 1.5) : 2;
+		return (daysRented > 2) 
+				? (2 + (daysRented - 2) * 1.5) 
+				: 2;
 	}
 }
